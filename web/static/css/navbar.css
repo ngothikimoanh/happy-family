@@ -30,3 +30,9 @@
   color: white;
   cursor: pointer;
 }
+
+.nav-links li a.active {
+  color: #222; /* xám đậm */
+  background-color: #ffffff;
+  font-weight: bold;
+}
