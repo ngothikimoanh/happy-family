@@ -1,0 +1,17 @@
+{% load static %}
+
+{% block navigation %}
+  <ul class="navbar">
+    <div class="nav-links">
+      <li><a href="{% url 'home' %}" class="{% if path == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="{% url 'cost' %}" class="{% if path == 'cost' %}active{% endif %}">Costs</a></li>
+      <li><a href="{% url 'humansource' %}" class="{% if path == 'humansource' %}active{% endif %}">Humansources</a></li>
+      <li><a href="{% url 'calendar' %}" class="{% if path == 'calendar' %}active{% endif %}">Calendar</a></li>
+      <li><a href="{% url 'storage' %}" class="{% if path == 'storage' %}active{% endif %}">Storage</a></li>
+      <div class="user-logo">
+        <li><a href="#"><i class="fa-regular fa-circle-user"></i></a></li>
+      </div>
+    </div>
+  </ul>
+{% endblock navigation %}
+

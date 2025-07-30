@@ -1,0 +1,38 @@
+.navbar{
+  height: 50px;
+  background-color: rgb(91, 170, 204);
+}
+.nav-links li{
+  display: inline-block;
+}
+.nav-links li a{
+  color: black ;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 50px;
+  padding: 0 25px;
+  display: inline-block;
+}
+.nav-links li:hover a{
+  color: blue;
+  background-color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-logo {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links li a.active {
+  color: #222; /* xám đậm */
+  background-color: #ffffff;
+  font-weight: bold;
+}
