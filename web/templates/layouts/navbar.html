@@ -9,7 +9,7 @@
       <li><a href="{% url 'calendar' %}" class="{% if path == 'calendar' %}active{% endif %}">Calendar</a></li>
       <li><a href="{% url 'storage' %}" class="{% if path == 'storage' %}active{% endif %}">Storage</a></li>
       <div class="user-logo">
-        <li><a href="#"><i class="fa-regular fa-circle-user"></i></a></li>
+        <li><a href="{% url 'register' %}"><i class="fa-regular fa-circle-user"></i></a></li>
       </div>
     </div>
   </ul>
