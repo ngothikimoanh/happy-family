@@ -8,4 +8,5 @@ urlpatterns = [
     path('humansource', views.humansource_view, name='humansource'),
     path('calendar', views.calendar_view, name='calendar'),
     path('storage', views.storage_view, name='storage'),
+    path('register', views.register_view,name='register'),
 ]
