@@ -8,6 +8,10 @@ username_validator = RegexValidator(
     message="Username can only contain letters, numbers, and underscores.."
 )
 
+class Role(models.TextChoices):
+        ADMIN = 'ADMIN', 'Admin'
+        USER = 'USER', 'User'
+
 class UserManager(BaseUserManager):
     def create_user(self, username, password, **extra_fields):
         user = self.model(username=username, **extra_fields)
@@ -15,26 +19,21 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
-    def create_superuser(self, username, password, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
-        return self.create_user(username, password, **extra_fields)
+    def create_superuser(self, username: str, password: str, **extra_fields):
+        extra_fields.setdefault("role", Role.ADMIN)
+        return self.create_user(username=username, password=password, **extra_fields)
+
 
 class User(AbstractBaseUser,PermissionsMixin):
-    class Role(models.TextChoices):
-        ADMIN = 'ADMIN', 'Admin'
-        USER = 'USER', 'User'
 
-    
     username = models.CharField(
         max_length=16,
         unique=True,
         validators=[username_validator]
     )
 
-    is_staff= models.BooleanField(default=False)
-    name = models.CharField(max_length=16)
-    birthday_year = models.PositiveSmallIntegerField()
+    display_name = models.CharField(max_length=16, null=True)
+    birthday_year = models.PositiveSmallIntegerField(null=True)
     role = models.CharField(
         max_length=10,
         choices=Role.choices,
