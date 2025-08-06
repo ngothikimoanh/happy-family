@@ -9,18 +9,24 @@
 {% block main %}
 <div class="container">
     <p>Register form</p>
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
-        <label for="name">Name: </label><br>
-        <input type="text" name="name" id="name"><br>
-        <label for="role">Role: </label><br>
-        <input type="text" name="role" id="role" required><br>
-        <label for="age">Age: </label><br>
-        <input type="number" name="age" id="age" min="18" max="60" required><br>
-        <label for="password">Password: </label>
-        <input type="password" id="password" name="password" minlength="6" maxlength="20" required><br>
-        <label for="confirm_password">Confirm password: </label>
-        <input type="password" id="confirm_password" name="confirm_password" minlength="6" maxlength="20" required><br>
+
+        <label for="id_username">Username:</label><br>
+        {{ form.username }}<br><br>
+
+        <label for="id_username">Display name:</label><br>
+        {{ form.display_name }}<br><br>
+
+        <label for="id_birthday_year">Birthday year:</label><br>
+        {{ form.birthday_year }}<br><br>
+
+        <label for="id_password">Password:</label><br>
+        {{ form.password }}<br><br>
+
+        <label for="id_password_confirm">Confirm password:</label><br>
+        {{ form.password_confirm }}<br><br>
+
         <button type="submit">Register</button>
     </form>
 </div>
