@@ -1,1 +1,5 @@
 Django
+
+# testing
+pytest
+pytest-django
