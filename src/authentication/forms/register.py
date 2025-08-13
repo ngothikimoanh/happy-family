@@ -6,14 +6,14 @@ from authentication.models.user import User
 
 class RegisterForm(forms.Form):
     username = forms.CharField(min_length=4, max_length=32, validators=[UnicodeUsernameValidator()])
-    password = forms.CharField(min_length=6, max_length=16, validators=[validate_password])
+    password = forms.CharField(max_length=16, validators=[validate_password])
     password_confirm = forms.CharField()
 
     def clean_username(self):
         username = self.cleaned_data['username']
         username = username.lower()
 
-        if User.objects.filter(username=username).exists:
+        if User.objects.filter(username=username).exists():
             raise forms.ValidationError('Username already exits')
 
     def clean_password_confirm(self):
